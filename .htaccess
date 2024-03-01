@@ -1,0 +1,19 @@
+RewriteEngine on
+
+RewriteRule ^ticket/([0-9a-zA-Z]+)$ ticket.php?tid=$1 [NC,L]
+RewriteRule ^crypto/([0-9a-zA-Z]+)$ crypto.php?tid=$1 [NC,L]
+
+RewriteRule ^verify-txn/(.*)/(.*)/(.*)$ verify-txn.php?reference=$1&total_amt=$2&number_of_tickets=$3&buyer_fullname=$4&buyer_email=$5&ticket_name=$6 [NC,L]
+
+
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteCond %{REQUEST_FILENAME}\.php -f
+
+RewriteRule ^(.*)$ $1.php
+
+RewriteCond $1 !^(media|helpers|inc|absummit@admin|fonts|dist|controller|connection|robots\.txt)
+
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+ErrorDocument 404 http://blockchainsummit.africa/404.html

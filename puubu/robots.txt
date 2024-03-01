@@ -1,0 +1,4 @@
+User-agent: * 
+Disallow: /admin/
+Disallow: /ajax/
+Disallow: /172.06.84.0/
